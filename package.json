@@ -1,15 +1,15 @@
 {
-  "name": "thriftrw",
-  "version": "3.12.0",
+  "name": "@shumih/thriftrw",
+  "version": "3.12.1",
   "description": "thrift encoding/decoding using bufrw",
   "keywords": [],
   "author": "Lei Zhao <leizha@uber.com>",
-  "repository": "git://github.com/thriftrw/thriftrw-node.git",
+  "repository": "git://github.com/shumih/thriftrw-node.git",
   "main": "index.js",
-  "homepage": "https://github.com/thriftrw/thriftrw-node",
+  "homepage": "https://github.com/shumih/thriftrw-node",
   "bugs": {
-    "url": "https://github.com/thriftrw/thriftrw-node/issues",
-    "email": "leizha@uber.com"
+    "url": "https://github.com/shumih/thriftrw-node/issues",
+    "email": "shumih.anton@gmail.com"
   },
   "contributors": [
     {
@@ -89,5 +89,6 @@
       "formatStack": true
     }
   },
-  "uber-ngen-version": "5.2.0"
+  "uber-ngen-version": "5.2.0",
+  "types": "thriftw.d.ts"
 }

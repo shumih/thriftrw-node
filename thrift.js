@@ -375,6 +375,10 @@ Thrift.prototype._compile = function _compile(defs) {
 };
 
 Thrift.prototype.compileInclude = function compileInclude(def) {
+    if (def.id.lastIndexOf('./', 0) !== 0 && def.id.lastIndexOf('../', 0) !== 0) {
+        def.id = './' + def.id;
+    }
+
     var filename = path.join(this.dirname, def.id);
     var ns = this.getNamespace(def);
 
