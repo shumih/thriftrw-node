@@ -39,7 +39,7 @@ GIT_TAG=$(npm version "$1")
 
 if [[ $(head -n1 CHANGELOG.md) = '# vNEXT'* ]]; then
     sed -i -e "/^# vNEXT/s/vNEXT.*/$GIT_TAG/" CHANGELOG.md
-    git commit --amend --no-edit CHANGELOG.md
+    git commit -n --amend --no-edit CHANGELOG.md
     git tag -a -f -F <(
         git cat-file tag "$GIT_TAG"  | tac | sed -e '/^$/q' | tac | tail -n+2
         ) "$GIT_TAG" HEAD
