@@ -220,7 +220,7 @@ Thrift.prototype.loadSync = function _parse(filename) {
 
         var filePath = path.resolve(filename);
         if (!this.fs.existsSync(filePath) && this.sharedPath) {
-            filePath = path.resolve(this.sharedPath, path.parse(filename).base);
+            filePath = path.resolve(this.sharedPath, path.basename(filename));
         }
 
         this.idls[filename] = this.fs.readFileSync(filePath, 'utf-8');
