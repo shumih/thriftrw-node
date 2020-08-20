@@ -1,6 +1,6 @@
 {
   "name": "@shumih/thriftrw",
-  "version": "3.12.1",
+  "version": "3.12.5",
   "description": "thrift encoding/decoding using bufrw",
   "keywords": [],
   "author": "Lei Zhao <leizha@uber.com>",
@@ -46,7 +46,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/thriftrw/thriftrw-node/raw/master/LICENSE"
+      "url": "http://github.com/shumih/thriftrw-node/raw/master/LICENSE"
     }
   ],
   "bin": {

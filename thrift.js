@@ -78,6 +78,8 @@ function Thrift(options) {
     this.asts = options.asts || Object.create(null);
     // filename to Thrift instance
     this.memo = options.memo || Object.create(null);
+    // shared directory location
+    this.sharedPath = options.sharedPath;
 
     // Grant file system access for resolving includes, as opposed to lifting
     // includes from provided options.idls alone.
@@ -215,7 +217,13 @@ Thrift.prototype.loadSync = function _parse(filename) {
         /* eslint-disable max-len */
         assert.ok(this.fs, filename + ': Thrift must be constructed with either a complete set of options.idls, options.asts, or options.fs access');
         /* eslint-enable max-len */
-        this.idls[filename] = this.fs.readFileSync(path.resolve(filename), 'utf-8');
+
+        var filePath = path.resolve(filename);
+        if (!this.fs.existsSync(filePath) && this.sharedPath) {
+            filePath = path.resolve(this.sharedPath, path.parse(filename).base);
+        }
+
+        this.idls[filename] = this.fs.readFileSync(filePath, 'utf-8');
     }
 
     if (!this.asts[filename]) {
@@ -553,9 +561,19 @@ Thrift.prototype.resolveIdentifier = function resolveIdentifier(def, name, model
     var parts = name.split('.');
     var err;
 
-    var module = this.modules[parts.shift()];
+    var module;
+    var identifierParts = [];
+    while (parts.length && !module) {
+        identifierParts.unshift(parts.pop());
+
+        var moduleName = parts.join('.');
+        if (this.modules[moduleName]) {
+            module = this.modules[moduleName];
+        }
+    }
+
     if (module) {
-        return module.resolveIdentifier(def, parts.join('.'), models);
+        return module.resolveIdentifier(def, identifierParts.join('.'), models);
     } else {
         err = new Error('cannot resolve reference to ' + def.name + ' at ' + def.line + ':' + def.column);
         err.line = def.line;
