@@ -1,11 +1,12 @@
 {
   "name": "@shumih/thriftrw",
-  "version": "3.12.5",
+  "version": "3.12.8",
   "description": "thrift encoding/decoding using bufrw",
   "keywords": [],
   "author": "Lei Zhao <leizha@uber.com>",
   "repository": "git://github.com/shumih/thriftrw-node.git",
   "main": "index.js",
+  "browser": "./browser/dist/bundle.js",
   "homepage": "https://github.com/shumih/thriftrw-node",
   "bugs": {
     "url": "https://github.com/shumih/thriftrw-node/issues",
@@ -68,7 +69,6 @@
     "travis": "eslint . && npm run cover -s && istanbul report lcov && ((cat coverage/lcov.info | coveralls) || exit 0)",
     "view-cover": "opn ./coverage/index.html"
   },
-  "browser": "./browser/dist/bundle.js",
   "engines": {
     "node": ">= 0.10.x"
   },
