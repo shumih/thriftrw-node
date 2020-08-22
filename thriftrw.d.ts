@@ -2,7 +2,7 @@
  * Partial typings for thriftrw package, types only for directly used methods
  */
 
-declare module 'thriftrw' {
+declare module '@shumih/thriftrw' {
     type ThriftOptions = {
         entryPoint: string;
         fs: object;
