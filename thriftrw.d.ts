@@ -62,7 +62,7 @@ declare module '@shumih/thriftrw' {
         type: 'EnumDefinition';
         id: Identifier;
         fieldType: BaseType;
-        value: number;
+        value: Literal;
         annotations?: TypeAnnotation[] | {};
     }
 

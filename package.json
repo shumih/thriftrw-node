@@ -1,6 +1,6 @@
 {
   "name": "@shumih/thriftrw",
-  "version": "3.12.12",
+  "version": "3.13.2",
   "description": "thrift encoding/decoding using bufrw",
   "keywords": [],
   "author": "Lei Zhao <leizha@uber.com>",

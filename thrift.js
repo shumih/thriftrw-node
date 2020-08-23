@@ -208,20 +208,20 @@ Thrift.prototype.loadIncludedModules = function loadIncludedModules(filename, cb
 }
 
 Thrift.prototype.loadSync = function _parse(filename) {
+    if (!this.fs.existsSync(filename) && this.sharedPath) {
+        filename = path.resolve(this.sharedPath, path.basename(filename));
+    }
+
     if (this.parsed[filename]) {
         return;
     }
+
     this.parsed[filename] = true;
 
     if (!this.idls[filename] && !this.asts[filename]) {
         /* eslint-disable max-len */
         assert.ok(this.fs, filename + ': Thrift must be constructed with either a complete set of options.idls, options.asts, or options.fs access');
         /* eslint-enable max-len */
-
-        var filePath = path.resolve(filename);
-        if (!this.fs.existsSync(filePath) && this.sharedPath) {
-            filePath = path.resolve(this.sharedPath, path.basename(filename));
-        }
 
         this.idls[filename] = this.fs.readFileSync(filePath, 'utf-8');
     }
@@ -388,6 +388,11 @@ Thrift.prototype.compileInclude = function compileInclude(def) {
     }
 
     var filename = path.join(this.dirname, def.id);
+
+    if (!this.fs.existsSync(filename) && this.sharedPath) {
+        filename = path.resolve(this.sharedPath, path.basename(filename));
+    }
+
     var ns = this.getNamespace(def);
 
     var model;
@@ -399,6 +404,8 @@ Thrift.prototype.compileInclude = function compileInclude(def) {
             entryPoint: filename,
             parsed: this.parsed,
             idls: this.idls,
+            fs: this.fs,
+            sharedPath: this.sharedPath,
             asts: this.asts,
             memo: this.memo,
             strict: this.strict,
