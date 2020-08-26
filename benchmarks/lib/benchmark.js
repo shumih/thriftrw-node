@@ -20,7 +20,7 @@
 
 /* global console */
 /* eslint-disable no-console */
-'use strict';
+
 
 var Stats = require('fast-stats').Stats;
 var longtime = require('./longtime');

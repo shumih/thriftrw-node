@@ -19,9 +19,9 @@
 // THE SOFTWARE.
 
 /* eslint max-statements:[1, 30] */
-'use strict';
 
-var bufrw = require('bufrw');
+
+var bufrw = require('@shumih/bufrw');
 var assert = require('assert');
 var TYPE = require('./TYPE');
 var errors = require('./errors');

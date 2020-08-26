@@ -18,12 +18,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
-var WriteResult = require('bufrw/base').WriteResult;
-var ReadResult = require('bufrw/base').ReadResult;
-var LengthResult = require('bufrw/base').LengthResult;
+var WriteResult = require('@shumih/bufrw/base').WriteResult;
+var ReadResult = require('@shumih/bufrw/base').ReadResult;
+var LengthResult = require('@shumih/bufrw/base').LengthResult;
 
 function JsonCase(args) {
     this.payload = args.payload;

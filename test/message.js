@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 /* eslint max-len:[0, 120] */
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
 var test = require('tape');

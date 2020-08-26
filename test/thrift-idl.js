@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 /* eslint max-len:[0, 120] */
-'use strict';
+
 
 var idl = require('../thrift-idl');
 var fs = require('fs');

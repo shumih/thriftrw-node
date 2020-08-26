@@ -20,7 +20,7 @@
 
 /* eslint-disable max-statements */
 
-'use strict';
+
 
 function X100(job) {
     this.job = job;

@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 /* eslint-disable max-len */
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
 var fs = require('fs');

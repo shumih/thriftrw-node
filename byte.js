@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
+
 
 module.exports.ThriftByte = require('./i8').ThriftI8;
 module.exports.ByteRW = require('./i8').I8RW;

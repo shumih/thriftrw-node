@@ -19,11 +19,11 @@
 // THE SOFTWARE.
 
 /* eslint max-statements:[0, 99] */
-'use strict';
+
 
 var TYPE = require('./TYPE');
-var bufrwErrors = require('bufrw/errors');
-var bufrw = require('bufrw');
+var bufrwErrors = require('@shumih/bufrw/errors');
+var bufrw = require('@shumih/bufrw');
 var errors = require('./errors');
 var TMapHeaderRW = require('./tmap').TMapRW.prototype.headerRW;
 var TListHeaderRW = require('./tlist').TListRW.prototype.headerRW;

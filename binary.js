@@ -18,10 +18,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
-var bufrw = require('bufrw');
+var bufrw = require('@shumih/bufrw');
 var TYPE = require('./TYPE');
 
 var BinaryRW = new bufrw.VariableBuffer(bufrw.Int32BE);

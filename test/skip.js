@@ -18,13 +18,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
 var test = require('tape');
-var formatError = require('bufrw/interface').formatError;
+var formatError = require('@shumih/bufrw/interface').formatError;
 var skip = require('../skip').skipField;
-var ReadResult = require('bufrw/base').ReadResult;
+var ReadResult = require('@shumih/bufrw/base').ReadResult;
 
 test('skips a bool', createCase([
     0x02, // typeid:1 -- 2, BOOL

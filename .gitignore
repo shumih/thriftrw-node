@@ -24,6 +24,7 @@ node_modules/
 # Browser builds #
 ##############
 browser/dist/*.js
+dist
 
 # Packages #
 ############

@@ -294,6 +294,6 @@ declare module 'thriftrw/i64' {
     }
 }
 
-declare module 'bufrw/errors' {
+declare module '@shumih/bufrw/errors' {
     export function expected(...args: any[]): any;
 }

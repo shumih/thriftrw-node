@@ -18,10 +18,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
+
 
 var assert = require('assert');
-var bufrw = require('bufrw');
+var bufrw = require('@shumih/bufrw');
 var TYPE = require('./TYPE');
 var errors = require('./errors');
 var ThriftConst = require('./const').ThriftConst;

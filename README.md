@@ -221,7 +221,7 @@ TLists also serve for sets.
 
 ```js
 var thriftrw = require("thriftrw");
-var bufrw = require('bufrw');
+var bufrw = require('@shumih/bufrw');
 
 var struct = new thriftrw.TStruct();
 struct.fields.push(

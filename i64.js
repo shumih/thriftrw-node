@@ -19,14 +19,14 @@
 // THE SOFTWARE.
 
 /* eslint no-self-compare: [0] */
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
 var util = require('util');
-var bufrw = require('bufrw');
+var bufrw = require('@shumih/bufrw');
 var Long = require('long');
 var TYPE = require('./TYPE');
-var errors = require('bufrw/errors');
+var errors = require('@shumih/bufrw/errors');
 
 // istanbul ignore next
 function I64RW() {

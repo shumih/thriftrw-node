@@ -18,10 +18,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
 
-var bufrw = require('bufrw');
-var ebufrw = require('bufrw/errors');
+
+var bufrw = require('@shumih/bufrw');
+var ebufrw = require('@shumih/bufrw/errors');
 var util = require('util');
 var TYPE = require('./TYPE');
 var errors = require('./errors');

@@ -20,9 +20,9 @@
 
 /* eslint max-len:[0, 120] */
 /* eslint max-statements:[0, 99] */
-'use strict';
 
-var bufrw = require('bufrw');
+
+var bufrw = require('@shumih/bufrw');
 var inherits = require('util').inherits;
 var errors = require('./errors');
 

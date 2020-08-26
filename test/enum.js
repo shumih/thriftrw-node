@@ -20,7 +20,7 @@
 
 /* eslint camelcase:[0] */
 /* eslint no-new:[0] */
-'use strict';
+
 
 var Buffer = require('buffer').Buffer;
 var test = require('tape');

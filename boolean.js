@@ -18,10 +18,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-'use strict';
 
-var bufrw = require('bufrw');
-var errors = require('bufrw/errors');
+
+var bufrw = require('@shumih/bufrw');
+var errors = require('@shumih/bufrw/errors');
 var TYPE = require('./TYPE');
 
 var BooleanRW = bufrw.Base(

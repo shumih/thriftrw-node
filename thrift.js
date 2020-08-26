@@ -19,14 +19,14 @@
 // THE SOFTWARE.
 
 /* eslint max-statements:[1, 45] */
-'use strict';
+
 
 var assert = require('assert');
 var util = require('util');
 var fs = require('fs');
 var path = require('path');
 var idl = require('./thrift-idl');
-var Result = require('bufrw/result');
+var Result = require('@shumih/bufrw/result');
 var lcp = require('./lib/lcp');
 var asyncEach = require('./lib/async-each.js');
 
@@ -223,7 +223,7 @@ Thrift.prototype.loadSync = function _parse(filename) {
         assert.ok(this.fs, filename + ': Thrift must be constructed with either a complete set of options.idls, options.asts, or options.fs access');
         /* eslint-enable max-len */
 
-        this.idls[filename] = this.fs.readFileSync(filePath, 'utf-8');
+        this.idls[filename] = this.fs.readFileSync(filename, 'utf-8');
     }
 
     if (!this.asts[filename]) {

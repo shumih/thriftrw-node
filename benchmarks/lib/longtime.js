@@ -20,7 +20,7 @@
 
 /* global process */
 
-'use strict';
+
 
 var Long = require('long');
 

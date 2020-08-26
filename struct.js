@@ -21,10 +21,10 @@
 /* eslint max-len:[0, 120] */
 /* eslint max-statements:[0, 99] */
 /* eslint complexity:[0, 16] */
-'use strict';
+
 
 var assert = require('assert');
-var bufrw = require('bufrw');
+var bufrw = require('@shumih/bufrw');
 var RW = require('./rw');
 var TYPE = require('./TYPE');
 var NAMES = require('./names');

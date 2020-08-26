@@ -39,7 +39,7 @@
 // THE SOFTWARE.
 
 /* eslint max-params:[1, 10] */
-'use strict';
+
 
 var none = {};
 
