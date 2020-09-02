@@ -145,7 +145,7 @@ declare module '@shumih/thriftrw' {
         type: 'Field';
         id: Identifier;
         name: string;
-        'default'?: string | number;
+        default?: string | number;
         optional: boolean;
         required: boolean;
         valueType: AnyType;
@@ -200,26 +200,45 @@ declare module '@shumih/thriftrw' {
         annotations: {};
     }
 
+    export interface ThriftList {
+        rw: any;
+        valueType: ThriftStruct;
+        annotations: {};
+    }
+
     export interface ThriftField {
         id: number;
         name: string;
         required: boolean;
         optional: boolean;
-        valueDefinition: MapType;
-        valueType: ThriftMap
-        defaultValueDefinition: MapType;
+        valueDefinition: AnyType;
+        valueType: ThriftMap | ThriftList | ThriftI64 | ThriftBoolean | ThriftString;
+        defaultValueDefinition: AnyType;
         defaultValue: any;
+        annotations: {};
+    }
+
+    export interface ThriftBoolean {
+        annotations: {};
+    }
+
+    export interface ThriftString {
+        annotations: {};
+    }
+    export interface ThriftI64 {
+        rw: any;
+        surface: Function;
         annotations: {};
     }
 
     export interface ThriftStruct {
         name: string;
         strict: boolean;
-        defaultValueDefinition: Literal
+        defaultValueDefinition: Literal;
         fields: ThriftField[];
         fieldsNames?: string[];
-        fieldsById: Record<number, ThriftField>
-        fieldsByName: Record<string, ThriftField>
+        fieldsById: Record<number, ThriftField>;
+        fieldsByName: Record<string, ThriftField>;
         isArgument: boolean;
         isResult: boolean;
         isException: boolean;
@@ -230,31 +249,51 @@ declare module '@shumih/thriftrw' {
         fullName: string;
     }
 
+    export interface ThriftFunction {
+        Arguments: Function;
+        ArgumentsMessage: Function;
+        Result: Function;
+        ResultMessage: Function;
+        annotations: {};
+        args: ThriftStruct;
+        argumentsMessageRW: any;
+        def: FunctionDefinition;
+        fullName: string;
+        linked: boolean;
+        model: unknown;
+        name: string;
+        oneway: boolean;
+        result: ThriftStruct;
+        resultMessageRW: any;
+        service: ThriftService;
+        strict: boolean;
+    }
+
+    export type AnyValueType = ThriftMap | ThriftList | ThriftI64 | ThriftBoolean | ThriftString;
     export type AnyType = BaseType | Identifier | ListType | MapType | SetType;
     export type Headers = NamespaceAst | IncludeAst;
     export type ModelsDefinitions = StructAst | EnumAst | ExceptionAst | UnionAst | ConstAst | TypedefAst;
     export type Definitions = ModelsDefinitions | ServiceAst;
 
     class ArgumentsMessage {
-        constructor(...args: any[])
+        constructor(...args: any[]);
     }
 
-
     type ParsedMethod = {
-        ArgumentsMessage: { new(...args: any): any }
-        Arguments: { new(...args: any[]):any; }
+        ArgumentsMessage: { new (...args: any): any };
+        Arguments: { new (...args: any[]): any };
         argumentsMessageRW: {
             byteLength: (message: any) => any[];
             writeInto: (message: any, buffer: Buffer, offset: number) => void;
         };
         resultMessageRW: {
             readFrom: (source: any, offset: number) => any;
-        },
+        };
         args: ThriftStruct;
         result: ThriftStruct;
         strict: boolean;
         linked: boolean;
-    }
+    };
 
     export type ParsedService = Record<string, ParsedMethod>;
 
@@ -275,17 +314,17 @@ declare module '@shumih/thriftrw' {
     }
 }
 
-declare module 'thriftrw/enum' {
+declare module '@shumih/thriftrw/enum' {
     export class ThriftEnum {
         name: string;
-        valuesToNames: {[key: string]: string};
-        namesToValues: {[key: string]: number};
+        valuesToNames: { [key: string]: string };
+        namesToValues: { [key: string]: number };
         constructor(annotations?: object);
         compile(definition: object, model: object): void;
     }
 }
 
-declare module 'thriftrw/i64' {
+declare module '@shumih/thriftrw/i64' {
     export class I64RW {}
 
     export class ThriftI64 {
