@@ -6,21 +6,20 @@ const commonjs = require("rollup-plugin-commonjs");
 const { uglify } = require("rollup-plugin-uglify");
 
 export default {
+  external: ["@shumih/bufrw"],
   input: "./index.js",
   output: {
     file: "./dist/bundle.min.js",
     format: "cjs",
+    exports: "named",
   },
   plugins: [
-    globals(),
+    globals({}),
     builtins(),
     resolve(),
     commonjs({
       exclude: "test/**",
     }),
     uglify(),
-    replace({
-      "Object.freeze({__proto__:null})": "bufrw",
-    }),
   ],
 };

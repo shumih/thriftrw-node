@@ -21,6 +21,7 @@
 
 
 var TYPE = require('./TYPE');
+var MapNativeRW = require('./map-native').MapNativeRW;
 var MapObjectRW = require('./map-object').MapObjectRW;
 var MapEntriesRW = require('./map-entries').MapEntriesRW;
 var errors = require('./errors');
@@ -29,9 +30,12 @@ function ThriftMap(keyType, valueType, annotations) {
     this.rw = null;
     this.surface = null;
 
-    var type = annotations['js.type'] || 'object';
+    var type = annotations['js.type'] || 'map';
 
-    if (type === 'object') {
+    if (type === 'map') {
+        this.rw = new MapNativeRW(keyType, valueType)
+        this.rw.surface = Map;
+    } else if (type === 'object') {
         this.rw = new MapObjectRW(keyType, valueType);
         this.surface = Object;
     } else if (type === 'entries') {
